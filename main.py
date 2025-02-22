@@ -27,7 +27,9 @@ app.add_middleware(
 )
 
 # Load the model from the directory containing saved_model.pb
-MODEL = tf.keras.models.load_model("C:/Users/admin/Desktop/Project/potatoes.h5",compile=False)  # Adjust path to match your directory structure
+# MODEL = tf.keras.models.load_model("C:/Users/admin/Desktop/Project/potatoes.h5",compile=False)  # Adjust path to match your directory structure
+MODEL_PATH = os.getenv("MODEL_PATH", "potatoes.h5")  # Default value if not set
+MODEL = tf.keras.models.load_model(MODEL_PATH)
 CLASS_NAMES = ["Early Blight", "Late Blight", "Healthy"]
 
 @app.get("/ping")
