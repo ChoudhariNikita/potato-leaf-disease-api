@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: Ping Render API
         run: |
-          curl -X GET "https://your-api.onrender.com/ping"
+          curl -X GET "https://potato-leaf-disease-api.onrender.com/ping"
