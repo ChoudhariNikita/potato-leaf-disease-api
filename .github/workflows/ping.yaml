@@ -1,0 +1,16 @@
+name: Keep Render App Alive
+
+on:
+  schedule:
+    - cron: "0 9,21 * * *"  # Runs at 09:00 AM and 09:00 PM UTC daily
+
+  workflow_dispatch:  # Allows manual execution of the workflow
+
+jobs:
+  keep_alive:
+    runs-on: ubuntu-latest  # Runs the job on an Ubuntu virtual machine
+
+    steps:
+      - name: Ping Render API
+        run: |
+          curl -X GET "https://your-api.onrender.com/ping"
